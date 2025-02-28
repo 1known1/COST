@@ -1,0 +1,35 @@
+package OOPsConceptsInJavaPart1;
+
+class Book {
+    static int bookId = 0;
+    String title;
+    String author;
+
+    public Book(String t, String a) {
+        bookId += 1;
+        this.title = t;
+        this.author = a;
+    }
+
+    public void searchBook(int id) {
+        System.out.println("Searching for book with Id: " + id);
+    }
+
+    public void searchBook(String t) {
+        System.out.println("Searching for book with title: " + t);
+    }
+
+    public void searchBook(String t, String a) {
+        System.out.println("Searching for book with title: " + t + " and Author: " + a);
+    }
+}
+
+public class Library {
+    public static void main(String[] args) {
+        Book b = new Book("Book of Optics", "Ibn al-Haytham");
+
+        b.searchBook(1);
+        b.searchBook("Book of Optics");
+        b.searchBook("Book of Optica", "Ibn al-Haytham");
+    }
+}
