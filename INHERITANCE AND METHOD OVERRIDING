@@ -1,0 +1,45 @@
+package OOPSConceptsInJavaPart2;
+
+abstract class Vehicle {
+    String brand;
+    int speed;
+
+    public Vehicle(String b, int s) {
+        this.brand = b;
+        this.speed = s;
+    }
+
+    abstract void displayInfo();
+}
+
+class Bike extends Vehicle {
+    public Bike(String b, int s) {
+        super(b, s);
+    }
+
+    @Override
+    public void displayInfo() {
+        System.out.println("Bike Brand: " + brand + ", Speed: " + speed + " km/h");
+    }
+}
+
+class Car extends Vehicle {
+    public Car(String b, int s) {
+        super(b, s);
+    }
+
+    @Override
+    public void displayInfo() {
+        System.out.println("Car Brand: " + brand + ", Speed: " + speed + " km/h");
+    }
+}
+
+public class VehicleSystem {
+    public static void main(String[] args) {
+        Vehicle bike = new Bike("Yamaha RX100", 100);
+        Vehicle car = new Car("Mahindra Thar", 120);
+
+        bike.displayInfo();
+        car.displayInfo();
+    }
+} 
