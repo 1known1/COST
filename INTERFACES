@@ -1,0 +1,41 @@
+package OOPsConceptsInJavaPart2;
+
+interface Payment {
+    void makePayment(double amount);
+}
+
+class CreditCardPayment implements Payment {
+    private String cardNumber;
+
+    public CreditCardPayment(String cardNumber) {
+        this.cardNumber = cardNumber;
+    }
+
+    @Override
+    public void makePayment(double amount) {
+        System.out.println("Paid " + amount + " using Credit Card: " + cardNumber);
+    }
+}
+
+class UPIPayment implements Payment {
+    private String upiId;
+
+    public UPIPayment(String upiId) {
+        this.upiId = upiId;
+    }
+
+    @Override
+    public void makePayment(double amount) {
+        System.out.println("Paid " + amount + " using UPI ID: " + upiId);
+    }
+}
+
+public class PaymentSystem {
+    public static void main(String[] args) {
+        Payment payment1 = new CreditCardPayment("1234-5678-9876-5432");
+        Payment payment2 = new UPIPayment("user@upi");
+
+        payment1.makePayment(1500);
+        payment2.makePayment(800);
+    }
+} 
