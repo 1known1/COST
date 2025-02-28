@@ -1,0 +1,42 @@
+package OOPsConceptsInJavaPart1; 
+
+class Book {
+
+    String title;
+    String author;
+
+    // Default Constructor
+    public Book() {
+        this.title = "Unknown Title"; 
+        this.author = "Unknown Author";
+    }
+
+    // Overloaded Constructor
+    public Book(String t, String a) {
+        this.title = t;
+        this.author = a;
+    }
+
+    // Copy Constructor
+    public Book(Book anotherBook) {
+        this.title = anotherBook.title;
+        this.author = anotherBook.author;
+    }
+
+    public void display() {
+        System.out.println("Title: " + title + ", Author: " + author); 
+    }
+}
+
+public class Library {
+    public static void main(String[] args) {
+        Book b1 = new Book(); // Fixed variable name and instantiation
+        b1.display();
+
+        Book b2 = new Book("Book of Optics", "Ibn al-Haytham"); 
+        b2.display();
+
+        Book b3 = new Book(b2);
+        b3.display();
+    }
+}
