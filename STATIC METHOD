@@ -1,0 +1,37 @@
+package OOPsConceptsInJavaPart1;
+
+class Book {
+    String title;
+    String author;
+    static int totalBooks = 0;
+
+    public Book(String t, String a) {
+        this.title = t;
+        this.author = a;
+        totalBooks++;
+    }
+
+    public void display() {
+        System.out.println("Title: " + title + ", Author: " + author);
+    }
+
+    public static void showLibraryInfo() {
+        System.out.println("Welcome to the Library System!");
+        System.out.println("Total Books Available: " + totalBooks);
+    }
+}
+
+public class Library {
+    public static void main(String[] args) {
+        Book b1 = new Book("Book of Optics", "Ibn al-Haytham");
+        b1.display();
+
+        Book b2 = new Book("The Canon of Medicine", "Ibn Sina");
+        b2.display();
+
+        Book b3 = new Book("Al-Jabr (Algebra)", "Al Khawarizmi");
+        b3.display();
+
+        Book.showLibraryInfo();
+    }
+}
