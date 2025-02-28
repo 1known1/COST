@@ -1,0 +1,60 @@
+package OOPsConceptsInJavaPart2;
+
+abstract class Employee {
+    String name;
+    int empId;
+
+    public Employee(String name, int empId) {
+        this.name = name;
+        this.empId = empId;
+    }
+
+    abstract double calculateSalary();
+
+    public void displayDetails() {
+        System.out.println("Employee ID: " + empId + ", Name: " + name);
+    }
+}
+
+class FullTimeEmployee extends Employee {
+    double monthlySalary;
+
+    public FullTimeEmployee(String name, int empId, double salary) {
+        super(name, empId);
+        this.monthlySalary = salary;
+    }
+
+    @Override
+    double calculateSalary() {
+        return monthlySalary;
+    }
+}
+
+class PartTimeEmployee extends Employee {
+    double hourlyRate;
+    int hoursWorked;
+
+    public PartTimeEmployee(String name, int empId, double hourlyRate, int hoursWorked) {
+        super(name, empId);
+        this.hourlyRate = hourlyRate;
+        this.hoursWorked = hoursWorked;
+    }
+
+    @Override
+    double calculateSalary() {
+        return hourlyRate * hoursWorked;
+    }
+}
+
+public class EmployeeManagement {
+    public static void main(String[] args) {
+        Employee emp1 = new FullTimeEmployee("Alice", 101, 50000);
+        Employee emp2 = new PartTimeEmployee("Bob", 102, 500, 20);
+
+        emp1.displayDetails();
+        System.out.println("Salary: " + emp1.calculateSalary());
+
+        emp2.displayDetails();
+        System.out.println("Salary: " + emp2.calculateSalary());
+    }
+} 
